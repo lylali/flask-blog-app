@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="text-muted border-bottom mb-3">{{legend}}</legend>
+
+                <div class="form-group pb-2">
+                    {{ form.title.label(class="form-control-label") }}
+                    <!-- error hint-->
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group pb-2">
+                    {{ form.subtitle.label(class="form-control-label") }}
+                    <!-- error hint-->
+                    {% if form.subtitle.errors %}
+                        {{ form.subtitle(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.subtitle.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.subtitle(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+
+                <div class="form-group pb-2">
+                    {{ form.content.label(class="form-control-label") }}
+                    <!-- error hint-->
+                    {% if form.content.errors %}
+                        {{ form.content(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.content(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+            <div class="form-group pt-2 pb-2">
+                {{ form.submit(class="btn btn-outline-primary") }}
+            </div>
+        </form>
+
+</div>
+
+
+
+{% endblock content %}
